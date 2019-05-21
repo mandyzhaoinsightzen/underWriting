@@ -1,0 +1,136 @@
+//网管代理
+$.get('http://proxy-auth.yiducloud.cn/sso/cookies')
+    .then(function (resp) {
+       document.cookie = 'nginx_proxy_session=' + resp.nginx_proxy_session;
+    });
+
+
+/**
+ *
+ * 顶部header的滑动自动悬浮。
+ * */
+
+headerInit();
+function headerInit() {
+    addHeaderEvent();
+    // console.log($(document).scrollTop());
+    $(document).scroll(function (e) {
+        if ($(document).scrollTop() >= 380) {
+            $('#yd-header').addClass('fixed');
+            var $header = $('#yd-header');
+            $header.off();
+        } else {
+            $('#yd-header').removeClass('fixed');
+            addHeaderEvent();
+        }
+    });
+}
+function addHeaderEvent() {
+    var $header = $('#yd-header');
+    $header.on('mouseover', function (e) {
+        $header.addClass('active');
+    });
+    $header.on('mouseout', function (e) {
+        $header.removeClass('active');
+    });
+}
+
+
+/**
+ *
+ *input plaseholder的检测函数
+ * */
+$(function() {
+    // 如果不支持placeholder，用jQuery来完成
+    if(!isSupportPlaceholder()) {
+        // 遍历所有input对象, 除了密码框
+        $('input').not("input[type='password']").each(
+            function() {
+                var self = $(this);
+                var val = self.attr("placeholder");
+                input(self, val);
+            }
+        );
+
+        /**
+         *  对password框的特殊处理
+         * 1.创建一个text框
+         * 2.获取焦点和失去焦点的时候切换
+         */
+        $('input[type="password"]').each(
+            function() {
+                var pwdField    = $(this);
+                var pwdVal      = pwdField.attr('placeholder');
+                var pwdId       = pwdField.attr('id');
+                // 重命名该input的id为原id后跟1
+                pwdField.after('<input id="' + pwdId +'1" type="text" value='+pwdVal+' autocomplete="off" />');
+                var pwdPlaceholder = $('#' + pwdId + '1');
+                pwdPlaceholder.show();
+                pwdField.hide();
+
+                pwdPlaceholder.focus(function(){
+                    pwdPlaceholder.hide();
+                    pwdField.show();
+                    pwdField.focus();
+                });
+
+                pwdField.blur(function(){
+                    if(pwdField.val() == '') {
+                        pwdPlaceholder.show();
+                        pwdField.hide();
+                    }
+                });
+            }
+        );
+    }
+});
+
+// 判断浏览器是否支持placeholder属性
+function isSupportPlaceholder() {
+    var input = document.createElement('input');
+    return 'placeholder' in input;
+}
+
+// jQuery替换placeholder的处理
+function input(obj, val) {
+    var $input = obj;
+    var val = val;
+    $input.attr({value:val});
+    $input.focus(function() {
+        if ($input.val() == val) {
+            $(this).attr({value:""});
+        }
+    }).blur(function() {
+        if ($input.val() == "") {
+            $(this).attr({value:val});
+        }
+    });
+}
+
+/**
+ * 设置多行省略号
+ * */
+function setTwoLine (list, selector) {
+    list.each(function () {
+        var lineHeight = parseInt($(this).css("line-height"));
+        var height = parseInt($(this).height());
+        if((height / lineHeight) > 2 ){
+            $(this).addClass(selector + "-after")
+        }else{
+            $(this).removeClass(selector + "-after");
+        }
+        $(this).css("height", '45px');
+    });
+}
+function setThirdLine (list, selector) {
+    list.each(function () {
+        var lineHeight = parseInt($(this).css("line-height"));
+        var height = parseInt($(this).height());
+        if((height / lineHeight) > 3 ){
+            $(this).addClass(selector + "-after")
+        }else{
+            $(this).removeClass(selector + "-after");
+        }
+        $(this).css("height", '70px');
+    });
+}

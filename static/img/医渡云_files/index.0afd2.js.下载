@@ -1,0 +1,117 @@
+!function(e) {
+    var t = {};
+    function n(i) {
+        if (t[i]) return t[i].exports;
+        var o = t[i] = {
+            "i": i,
+            "l": !1,
+            "exports": {}
+        };
+        return e[i].call(o.exports, o, o.exports, n), o.l = !0, o.exports;
+    }
+    n.m = e, n.c = t, n.d = function(e, t, i) {
+        n.o(e, t) || Object.defineProperty(e, t, {
+            "enumerable": !0,
+            "get": i
+        });
+    }, n.r = function(e) {
+        "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, {
+            "value": "Module"
+        }), Object.defineProperty(e, "__esModule", {
+            "value": !0
+        });
+    }, n.t = function(e, t) {
+        if (1 & t && (e = n(e)), 8 & t) return e;
+        if (4 & t && "object" == typeof e && e && e.__esModule) return e;
+        var i = Object.create(null);
+        if (n.r(i), Object.defineProperty(i, "default", {
+            "enumerable": !0,
+            "value": e
+        }), 2 & t && "string" != typeof e) for (var o in e) n.d(i, o, function(t) {
+            return e[t];
+        }.bind(null, o));
+        return i;
+    }, n.n = function(e) {
+        var t = e && e.__esModule ? function() {
+            return e["default"];
+        } : function() {
+            return e;
+        };
+        return n.d(t, "a", t), t;
+    }, n.o = function(e, t) {
+        return Object.prototype.hasOwnProperty.call(e, t);
+    }, n.p = "/", n(n.s = 6);
+}({
+    "6": function(e, t, n) {
+        "use strict";
+        n(7);
+        var i = void 0;
+        $(function() {
+            $.support.cors = !0, $.get("/api/news/queryNews?pn=1&ps=3").done(function(e) {
+                (i = e.data).forEach(function(e, t) {
+                    e.showImageSrc = e.showImageSrc.split("http://official-website-admin.intra.yiducloud.cn")[1];
+                }), function(e) {
+                    var t = "";
+                    $.each(e, function(e, n) {
+                        t += '<dl class="news-item" data-time="' + n.updateTime + '" id="' + n.id + '"><dt><img src="' + n.showImageSrc + '"></dt><dd><span class="content">' + n.title + '</span><span class="tag">新闻</span><span class="date">' + n.time + "</span></dd></dl>";
+                    }), $(".list").html(t), $("body").on("click", ".news-item", function() {
+                        var e = $(this).attr("id"), t = $(this).data("time");
+                        window.open("/details.html?id=" + e + "&updateTime=" + t);
+                    });
+                }(i);
+            }).fail(function() {});
+            var e, t = $(".swiper-container-honor>.swiper-wrapper"), n = $(".swiper-button-prev"), o = $(".swiper-button-next"), s = 175, a = 0;
+            t.append(t.html());
+            var r = t.children().length, l = null;
+            function u() {
+                l = setInterval(function() {
+                    c();
+                }, 2e3);
+            }
+            function c(n) {
+                var i = r / 2 >>> 0;
+                n ? (a < 1 && (a = i, t.css("left", -s * a)), e = -s * --a) : (++a > i && (a = 1, 
+                t.css("left", 0)), e = -s * a), t.stop().animate({
+                    "left": e
+                }, 500);
+            }
+            n.on("click", function(e) {
+                e.preventDefault(), c(!0);
+            }), o.on("click", function(e) {
+                e.preventDefault(), c();
+            }), u(), t.on("mouseenter", function() {
+                clearInterval(l);
+            }).on("mouseleave", function() {
+                u();
+            }), $(".swiper-container-honor .swiper-slide").on("mouseenter", function() {
+                $(this).addClass("hover").siblings().removeClass("hover");
+            }).on("mouseleave", function() {
+                $(this).removeClass("hover");
+            }), $(".news .list").on("mouseenter", "dl", function() {
+                $(this).addClass("shadow").siblings().removeClass("shadow"), $(this).find("img").stop().animate({
+                    "width": "400px",
+                    "height": "222px",
+                    "top": "-16px",
+                    "left": "-29px"
+                }, 1e3);
+            }).on("mouseleave", "dl", function() {
+                $(this).removeClass("shadow"), $(this).find("img").stop().animate({
+                    "width": "342px",
+                    "height": "190px",
+                    "top": "0",
+                    "left": "0"
+                }, 1e3);
+            }), $(".menu>li").on("mouseenter", function() {
+                $(this).find("dl").stop().animate({
+                    "top": "15%"
+                }, 1e3), $(this).find(".detail").show(), $(this).find(".dialog>img").attr("src", "/static/images/home/blue.png");
+            }).on("mouseleave", function() {
+                $(this).find("dl").stop().animate({
+                    "top": "30%"
+                }, 1e3), $(this).find(".dialog>img").attr("src", "/static/images/home/dialog.png"), 
+                $(this).find(".detail").hide();
+            });
+        });
+    },
+    "7": function(e, t, n) {}
+});

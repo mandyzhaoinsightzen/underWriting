@@ -1,0 +1,129 @@
+body,
+ul,
+ol,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+figure,
+form,
+fieldset,
+legend,
+input,
+textarea,
+button,
+p,
+blockquote,
+th,
+td,
+pre,
+xmp {
+  margin: 0;
+  padding: 0; }
+
+input,
+textarea,
+button,
+select,
+pre,
+xmp,
+tt,
+code,
+kbd,
+samp {
+  font-family: inherit; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+small,
+big,
+input,
+textarea,
+button,
+select {
+  font-size: inherit; }
+
+address,
+cite,
+dfn,
+em,
+i,
+optgroup,
+var {
+  font-style: normal; }
+
+ul,
+ol,
+menu {
+  list-style: none; }
+
+input,
+textarea,
+button,
+select,
+summary,
+a {
+  outline: 0 none; }
+
+a,
+ins,
+s,
+u,
+del {
+  text-decoration: none; }
+
+img {
+  border: none;
+  vertical-align: top; }
+
+a,
+img {
+  -webkit-touch-callout: none; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
+strong {
+  font-weight: 300; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 12px; }
+
+.clear:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden; }
+
+* {
+  box-sizing: border-box; }
+
+input::-webkit-input-placeholder {
+  color: #8795A9; }
+
+input::-moz-placeholder {
+  color: #8795A9; }
+
+input::-moz-placeholder {
+  color: #8795A9; }
+
+input::-ms-input-placeholder {
+  color: #8795A9; }
+*{
+  font-family: 'Helvetica Neue', 'Arial', "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif; }

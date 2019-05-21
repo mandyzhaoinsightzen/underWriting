@@ -1,0 +1,529 @@
+body,
+ul,
+ol,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+figure,
+form,
+fieldset,
+legend,
+input,
+textarea,
+button,
+p,
+blockquote,
+th,
+td,
+pre,
+xmp {
+    margin: 0;
+    padding: 0;
+}
+
+input,
+textarea,
+button,
+select,
+pre,
+xmp,
+tt,
+code,
+kbd,
+samp {
+    font-family: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+small,
+big,
+input,
+textarea,
+button,
+select {
+    font-size: inherit;
+}
+
+address,
+cite,
+dfn,
+em,
+i,
+optgroup,
+var {
+    font-style: normal;
+}
+
+ul,
+ol,
+menu {
+    list-style: none;
+}
+
+input,
+textarea,
+button,
+select,
+summary,
+a {
+    outline: 0 none;
+    cursor: pointer;
+}
+
+a,
+ins,
+s,
+u,
+del {
+    text-decoration: none;
+}
+
+img {
+    border: none;
+    vertical-align: top;
+}
+
+a,
+img {
+    -webkit-touch-callout: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
+strong {
+    font-weight: 300;
+}
+
+* {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 14px;
+}
+
+.clear:after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+input::-webkit-input-placeholder {
+    color: #8795A9;
+}
+
+input::-moz-placeholder {
+    color: #8795A9;
+}
+
+input::-moz-placeholder {
+    color: #8795A9;
+}
+
+input::-ms-input-placeholder {
+    color: #8795A9;
+}
+
+@keyframes slideDown {
+    from {
+        background: transparent;
+    }
+    to {
+        background: #273143;
+    }
+}
+
+html body .container {
+    /*position: relative;*/
+    /*z-index: 1;*/
+}
+
+/*顶部样式公共*/
+
+#yd-header {
+    width: 100%;
+    height: 64px;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    line-height: 64px;
+    text-align: center;
+    min-width: 1280px;
+}
+
+#yd-header .yd-header-wrapper {
+    width: 100%;
+    height: 64px;
+    background: rgba(0, 0, 0);
+    background: rgba(0, 0, 0, 0.1);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#19000000, endColorstr=#19000000);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#19000000, endColorstr=#19000000)";
+}
+
+#yd-header .yd-header-content {
+    display: inline-block;
+    width: 1280px;
+    height: 100%;
+    overflow: hidden;
+}
+
+#yd-header .yd-header-content a {
+    position: relative;
+}
+
+/*@media \0screen\,screen\9 {*/
+/*#yd-header {*/
+/*.yd-header-wrapper {*/
+/**/
+/*}*/
+/*}*/
+/*}*/
+
+#yd-header.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 123;
+
+    -webkit-animation: slideDown 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0s 1;
+    -moz-animation: slideDown 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0s 1;
+    -ms-animation: slideDown 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0s 1;
+    -o-animation: slideDown 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0s 1;
+    animation: slideDown 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0s 1;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -ms-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.yd-header-left {
+    height: 64px;
+    width: 120px;
+    float: left;
+    padding-top: 15px;
+    margin-left: 30px;
+}
+
+.yd-header-title {
+    float: left;
+    color: #fff;
+    font-size: 14px;
+}
+
+.yd-header-center {
+    float: right;
+    overflow: hidden;
+}
+
+.yd-header-center .header-center-list {
+    display: inline-block;
+}
+
+.yd-header-center li:hover a {
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.yd-header-center li:hover a::before {
+    transform: scaleX(1);
+    background: #6ca4ef;
+    transition: all .2s ease-in-out;
+}
+
+/*.yd-header-center li.active {*/
+/*font-weight: 500;*/
+/*}*/
+
+/*.yd-header-center li.active a:before, .yd-header-center li.active a before {*/
+/*content: "";*/
+/*display: block;*/
+/*width: 100%;*/
+/*height: 3px;*/
+/*background: #6ca4ef;*/
+/*position: absolute;*/
+/*bottom: 0;*/
+/*left: 0;*/
+/*transform: scaleX(1);*/
+/*}*/
+
+.yd-header-center li {
+    float: left;
+    list-style: none;
+    height: 64px;
+    line-height: 64px;
+    padding: 0 12px;
+}
+
+.yd-header-center li a {
+    display: block;
+    height: 50px;
+    color: white;
+    font-size: 14px;
+    position: relative;
+}
+
+.yd-header-center li a:before, .yd-header-center li a before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transition: all .2s ease-in-out;
+}
+
+.yd-keyan-box {
+    float: right;
+    margin-right: 30px;
+    margin-left: 20px;
+}
+
+.yd-keyan-box a {
+    display: inline-block;
+    color: #fff;
+    width: 95px;
+    height: 25px;
+    line-height: 24px;
+    text-align: center;
+    border: 1px solid #fff;
+}
+
+.divbtn-en {
+    margin-top: 20px;
+    position: relative;
+    width: 52px;
+}
+
+.btn-en {
+    color: #ffffff;
+    font-size: 14px;
+    top: -22px;
+    right: 0px;
+}
+
+.yd-header-right .phone-icon {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.yd-header-right .search-icon {
+    display: none;
+    /* background: url("/static/images/search.png") no-repeat center center; */
+    /* background-size: 14px 14px; */
+    width: 14px;
+    height: 14px;
+    /* margin-left: 10px; */
+    vertical-align: middle;
+}
+
+.yd-header-right {
+    float: right;
+    height: 64px;
+}
+
+.yd-header-right .pp {
+    vertical-align: middle;
+    float: none;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+.yd-header-right .phone {
+    display: inline-block;
+    color: #fff;
+    font-size: 14px;
+    float: none;
+    background: none;
+
+}
+
+.yd-header-right input {
+    display: none;
+    float: none;
+    width: 150px;
+    line-height: 30px;
+    vertical-align: middle;
+    height: 30px;
+    border: 0px;
+    color: #fff;
+    padding: 0px 10px;
+    margin-right: 10px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.3);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000, endColorstr=#4C000000);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000, endColorstr=#4C000000)";
+}
+
+/*中间部分*/
+#yd-body {
+}
+
+/*底部样式*/
+#yd-footer {
+    width: 100%;
+    height: 283px;
+    min-width: 1280px;
+    background: #414d63;
+    text-align: center;
+}
+
+#yd-footer .yd-footer-content {
+    width: 1280px;
+    display: inline-block;
+}
+
+#yd-footer .yd-footer-down {
+    height: 36px;
+    width: 100%;
+    line-height: 36px;
+    text-align: center;
+    color: #BEC1C6;
+    font-size: 12px;
+    background: #273143;
+    /*border-top: 1px solid rgba(255, 255, 255, 0.2);*/
+}
+
+#yd-footer .yd-footer-bottom {
+    background: #273143;
+    text-align: center;
+    height: 36px;
+    line-height: 36px;
+    font-size: 12px;
+}
+
+#yd-footer .yd-footer-bottom a {
+    display: inline-block;
+    text-decoration: none;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+#yd-footer .yd-footer-bottom a img {
+    float: left;
+    width: 16px;
+    height: 16px;
+}
+
+#yd-footer .yd-footer-bottom a p {
+    height: 20px;
+    line-height: 20px;
+    margin: 0px 5px;
+    color: #939393;
+    float: left;
+    font-size: 12px;
+}
+
+#yd-footer .yd-footer-icon {
+    padding: 36px 127px 0px 40px;
+    height: 248px;
+    margin: 0 auto;
+    color: #ffffff;
+}
+
+.yidu_logo {
+    width: 108px;
+    height: 36px;
+    float: left;
+    position: relative;
+}
+
+.yidu_logo a.logo-cover {
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+#yd-footer .yd-footer-icon ul {
+    height: 80px;
+    float: left;
+    margin-left: 160px;
+}
+
+#yd-footer .yd-footer-icon ul li {
+    float: left;
+    vertical-align: top;
+    margin-right: 70px;
+    text-align: left;
+}
+
+#yd-footer .yd-footer-icon ul li a {
+    color: #fff;
+    font-size: 12px;
+}
+
+#yd-footer .yd-footer-icon ul li:nth-child(2) {
+    margin-top: 38px;
+}
+
+#yd-footer .yd-footer-icon ul li h2 {
+    font-size: 14px;
+    line-height: 28px;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#yd-footer .yd-footer-icon ul li p {
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 26px;
+}
+
+#yd-footer .yd-footer-icon ul li p.guiyang {
+    margin-left: 38px;
+}
+
+#yd-footer .yd-footer-icon .qr_code {
+    width: 120px;
+    float: right;
+    text-align: center;
+    margin-top: 40px;
+}
+
+#yd-footer .yd-footer-icon .qr_code h5 {
+    padding-top: 16px;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+}
+
+#yd-footer .yd-footer-icon .qr_code h4 {
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 400;
+}

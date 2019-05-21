@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html ng-app="voteApp">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>智能承保系统</title>
+		<link rel="stylesheet" type="text/css" href="static/css/pure-0.6.min.css" />
+		<link rel="stylesheet" type="text/css" href="static/css/app.css" />
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+	</head>
+	<body>
+		<header class="header">
+			<div class="menu">
+				<img src="static/img/insightzen-logo.png"  width="130px" class="logo">
+				<span class="header-title alignCenter width100point">智能承保系统</span>
+				<div class="login-info margin-top25">
+					<label id="loginName">{{userName}}</label><img src="static/img/down.png" width="12px" class="img-down"><a onclick="loginOut()" >注销</a>
+				</div>
+				<div  class="login-info"><img src="static/img/login-person.png" width="44px" class="img-person"></div>
+
+			</div>
+			<section>
+				<div class="core-main core-clearfix" id="default-searchbox">
+					<div class="core-search core-clearfix" id="core-search-inline">
+						<form class="core-search-form"
+							  id="core-search-form">  <!--target="_blank" -->
+							<div class="input-search">
+								<input type="text" name="q" class="core-search-form-input" id="core-search-form-input"
+									   placeholder=" 请输入关键词" autocomplete="off" value="">
+								<!--<img src="static/img/search.png" width="15px" href="" class="search">-->
+								<a class="search" ><img src="static/img/search.png" width="15px" id="imgSearch" ></a>
+							</div>
+						<!--	<a class="core-search-form-submit " id="core-search-form-submit" href="javascript:void(0);" onclick="searchPersonInfo()" >搜索</a>-->
+						</form>
+					</div>
+				</div>
+			</section>
+		</header>
+		</header>
+
+		<div class="container">
+			<div class="content" ng-view></div>
+		</div>
+
+		<script type="text/javascript" src="static/js/angular-1.5.8.js"></script>
+		<script type="text/javascript" src="static/js/echarts.min.js"></script>
+		<script type="text/javascript" src="static/js/jquery.min.js"></script>
+
+		<script type="text/javascript" src="static/js/angular-route.js"></script>
+		<script type="text/javascript" src="app/app.js"></script>
+		<script type="text/javascript" src="app/service/voteServices.js"></script>
+		<script type="text/javascript" src="app/filter/voteFilters.js"></script>
+		<script type="text/javascript" src="app/directive/voteDirectives.js"></script>
+		<script type="text/javascript" src="app/controller/voteControllers.js"></script>
+
+		<script type="text/javascript" src="static/js/apiGateway-js-sdk/lib/axios/dist/axios.standalone.js"></script>
+		<script type="text/javascript" src="static/js/apiGateway-js-sdk/lib/CryptoJS/rollups/hmac-sha256.js"></script>
+		<script type="text/javascript" src="static/js/apiGateway-js-sdk/lib/CryptoJS/components/hmac.js"></script>
+		<script type="text/javascript" src="static/js/apiGateway-js-sdk/lib/CryptoJS/components/enc-base64.js"> </script>
+		<!--<script type="text/javascript" src="static/js/apiGateway-js-sdk/lib/moment/moment.js"></script>-->
+		<script type="text/javascript" src="static/js/apiGateway-js-sdk/lib/url-template/url-template.js"></script>
+		<script type="text/javascript" src="static/js/apiGateway-js-sdk/lib/apiGatewayCore/sigV4Client.js"></script>
+		<script type="text/javascript" src="static/js/apiGateway-js-sdk/lib/apiGatewayCore/apiGatewayClient.js"></script>
+		<script type="text/javascript" src="static/js/apiGateway-js-sdk/lib/apiGatewayCore/simpleHttpClient.js"></script>
+		<script type="text/javascript" src="static/js/apiGateway-js-sdk/lib/apiGatewayCore/utils.js"></script>
+		<script type="text/javascript" src="static/js/apiGateway-js-sdk/apigClient.js"></script >
+         <script>
+
+         function loginOut() {
+             window.location.href="login.html";
+           }
+		 </script>
+	</body>
+</html>

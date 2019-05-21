@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" class="login-body">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>智能承保系统</title>
+    <link rel="stylesheet" type="text/css" href="static/css/pure-0.6.min.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/app.css" />
+</head>
+<body >
+
+<div class="login-main">
+
+    <div class="login-title">
+        <img src="static/img/insightzen-logo.png" width="125px;">
+        <header class="layui-elip">智能承保系统</header>
+    </div>
+    <div class="login-input">
+        <form class="layui-form margin-top50" id="loginform" >
+            <div class="layui-input-inline margin-top25 ">
+                账号：
+                <input type="text" id="loginNameId" required lay-verify="required" placeholder="用户名" autocomplete="off"
+                       class="layui-input">
+            </div>
+            <div class="layui-input-inline">
+                密码：
+                <input type="password" id="passwordId" required lay-verify="required" placeholder="密码" autocomplete="off"
+                       class="layui-input">
+            </div>
+        </form>
+        <div class="layui-form">
+            <div class="layui-input-inline login-btn width100point">
+                <button type="submit" class="layui-btn width100point"  id="tbnLogin" onclick="login()">登录</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript" src="static/js/angular-1.5.8.js"></script>
+<script type="text/javascript" src="static/js/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+
+    function login() {
+        var userName=$("#loginNameId").val();
+
+        var data=JSON.stringify({username: userName, password:$("#passwordId").val()});
+
+        $.ajax("https://hhwcni46h8.execute-api.cn-northwest-1.amazonaws.com.cn/dev/login", {
+            type: "post",
+            dataType:'json',
+            data:data,
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            success: function(data, status, xhr) {
+                var accessKey=data.accessKey;
+                var secretKey=data.secretKey;
+                sessionStorage.setItem("userName",userName );
+                sessionStorage.setItem("accessKey", accessKey);
+                sessionStorage.setItem("secretKey", secretKey);
+
+                window.location.href="index.html";
+
+            },  error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("登录失败");
+            },
+        });
+    }
+    /* $.ajax({
+             url:"https://hhwcni46h8.execute-api.cn-northwest-1.amazonaws.com.cn/dev/login",
+             type:'post',
+             dataType:'json',
+             data:data,
+             contentType: "application/json; charset=utf-8",
+             withCredentials: true,
+             success: function (data, status) {
+
+                 var access_token=data.access_token;
+                 sessionStorage.setItem("access_token", access_token);
+                 if (data.statuscode == "401") {
+
+                 }
+                 else
+                 {
+                     //alert(JSON.stringify(data))
+                     window.location.href="index.html";
+                 }
+             },
+             error: function (XMLHttpRequest, textStatus, errorThrown) {
+                 /!*alert(XMLHttpRequest.status);
+                 alert(XMLHttpRequest.readyState);
+                 alert(textStatus);*!/
+
+                 alert("登录失败");
+             },
+         });*/
+</script>
+</body>
+</html>
