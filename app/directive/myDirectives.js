@@ -1,8 +1,8 @@
-//验证球员号码
-angular.module("voteApp").directive("valPlayerNum", function() {
+//验证号码
+angular.module("myApp").directive("valPlayerNum", function() {
 	return {
 	    require: "ngModel",
-	    link: function(scope, element, attr, mCtrl) {
+	   /* link: function(scope, element, attr, mCtrl) {
 	        function valPlayerNum(value) {
 	        	if (/^([1-9]\d|\d)$/.test(value)) {
 	            	mCtrl.$setValidity('playerNum', true);
@@ -12,6 +12,6 @@ angular.module("voteApp").directive("valPlayerNum", function() {
 	        	return value;
 	        }
 	        mCtrl.$parsers.push(valPlayerNum);
-	    }
+	    }*/
     };
 });

@@ -1,6 +1,6 @@
 //自定义Service
-angular.module("voteApp").service("voteSer", ["$q", "$http", function($q, $http) {
-	this.getPlayerNames = function() {
+angular.module("myApp").service("mySer", ["$q", "$http", function($q, $http) {
+	/*this.getPlayerNames = function() {
 		return $http.get("data/players.json").then(function(resp) {
 			if(typeof resp.data === "object") {
 				var playerNames = [];
@@ -15,6 +15,6 @@ angular.module("voteApp").service("voteSer", ["$q", "$http", function($q, $http)
 		}, function(resp) {
 			return $q.reject(resp.status);
 		});
-	};
+	};*/
 }]);
 
